@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ping & Locate</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 40px;
+      background: rgba(0, 0, 0, 0.8);
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    #logo {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 2px solid white;
+    }
+
+    .title {
+      font-size: 36px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      animation: title-animation 10s ease infinite;
+    }
+
+    #vignan-logo img{
+      width: 450px;
+    } 
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+    }
+
+    nav ul li {
+      display: inline;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 17px;
+      padding: 6px 10px;
+      position: relative;
+    }
+
+    nav ul li a::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      bottom: 0;
+      left: 0;
+      background: #ff416c;
+      transform: scaleX(0);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    nav ul li a:hover::after {
+      transform: scaleX(1);
+    }
+
+    /* Title Animation - Opposite Colors */
+    @keyframes title-animation {
+      0%, 100% { color: #ff4b2b; } /* Orange when bg is blue */
+      50% { color: #2193b0; }      /* Blue when bg is orange */
+    }
+
+    /* Back ground image */
+    .background-section {
+      width: 100%;
+      height: 100vh;
+      background: url('./image.webp') no-repeat top center;
+      background-size: cover;
+      margin-top: 0;
+      padding: 0; /* Pushes the image below the fixed header */
+    }
+
+    /* Centered Box */
+    .center-box {
+      text-align: center;
+      padding: 40px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(255, 75, 43, 0.8), rgba(33, 147, 176, 0.8));
+      border: 6px solid;
+      animation: border-animation 6s infinite alternate;
+      color: white;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+      height: 180px;
+      width: 320px; /* Keeps it compact */
+      position: absolute;
+      top: 48%;
+      left: 69%;
+      transform: translate(-50%, -50%);
+    }
+
+    .center-box h1 {
+      font-size: 35px;
+      margin-bottom: 40px;
+    }
+
+    .button {
+      display: inline-block;
+      background: white;
+      color: #ff4b2b;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .button:hover {
+      background: #ff4b2b;
+      color: white;
+    }
+
+    /* Border Animation */
+    @keyframes border-animation {
+      0% { border-color: #ff4b2b; }
+      50% { border-color: #2193b0; }
+      100% { border-color: #ff4b2b; }
+    }
+    
+    footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 40px;
+      background: rgb(0, 0, 0);
+      color: white;
+    }
+
+    .foot-left{
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .foot-mid{
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    #logo-footer {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 2px solid white;
+    }
+  </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo-container">
+            <img id="logo" src="./logo.webp" alt="Logo">
+            <h1 class="title">Ping & Locate</h1>
+        </div>
+        <div id="vignan-logo">
+          <img src="./vignan.png" alt="vignan">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./about_us.html">About Us</a></li>
+                <li><a href="./founder_details.html">Founder details</a></li>
+                <li><a href="./contact_info.html">Contact info</a></li>
+                <li><a href="./login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="background-section"></div>
+
+    <div class="center-box">
+      <h1>Welcome to<br> Ping & Locate</h1>
+      <a href="./connect.html" class="button">Get Started</a>
+    </div>
+    
+    <footer>
+      <div class="foot-left">
+        <img id="logo-footer" src="./logo.webp" alt="Logo">
+        <span class="mb-3 mb-md-0 text-body-secondary">© 2024 Company, Inc</span>
+      </div>
+
+      <div class="foot-mid">
+        <p>K.Harshith</p>
+        <p>K.Arya</p>
+        <p>K.J.Anil Pravin</p>
+        <p>G.Puneeth</p>
+        <p>K.Harsha Vardhan</p>
+      </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ping & Locate</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(-45deg, #ff416c, #ff4b2b, #2193b0, #6dd5ed);
+      background-size: 400% 400%;
+      animation: bg-animation 10s ease infinite;
+      color: white;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 40px;
+      background: rgba(0, 0, 0, 0.8);
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    #logo {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 2px solid white;
+    }
+
+    .title {
+      font-size: 36px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      animation: title-animation 10s ease infinite;
+    }
+
+    #vignan-logo {
+      width: 450px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+    }
+
+    nav ul li {
+      display: inline;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 17px;
+      padding: 6px 10px;
+      position: relative;
+    }
+
+    nav ul li a::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      bottom: 0;
+      left: 0;
+      background: #ff416c;
+      transform: scaleX(0);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    nav ul li a:hover::after {
+      transform: scaleX(1);
+    }
+
+    /* Main Content */
+    .intro {
+      text-align: center;
+      padding: 50px;
+    }
+
+    .intro h2 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    /* Cards */
+    .info {
+      display: flex;
+      justify-content: space-evenly;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      width: 28%;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .card h3 {
+      color: #ffd700;
+    }
+
+    .card p {
+      color: white;
+    }
+
+    /* Background Animation */
+    @keyframes bg-animation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Title Animation - Opposite Colors */
+    @keyframes title-animation {
+      0%, 100% { color: #ff4b2b; } /* Orange when bg is blue */
+      50% { color: #2193b0; }      /* Blue when bg is orange */
+    }
+
+    footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 40px;
+      background: rgb(0, 0, 0);
+      color: white;
+    }
+
+    .foot-left{
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .foot-mid{
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    #logo-footer {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 2px solid white;
+    }
+  </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo-container">
+            <img id="logo" src="./logo.webp" alt="Logo">
+            <h1 class="title">Ping & Locate</h1>
+            <img id="vignan-logo" src="./vignan.png" alt="vignan">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./about_us.html">About Us</a></li>
+                <li><a href="./founder_details.html">Founder details</a></li>
+                <li><a href="./contact_info.html">Contact info</a></li>
+                <li><a href="./login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="intro">
+            <h2>Location Tracking with Precision</h2>
+            <p>Our system provides an advanced method to locate a mobile phone using network signals, ensuring high accuracy and real-time updates.</p>
+        </section>
+
+        <section class="info">
+            <div class="card">
+                <h3>How It Works</h3>
+                <p>By analyzing signal strengths from multiple towers, our platform accurately pinpoints the location of a mobile device.</p>
+            </div>
+            <div class="card">
+                <h3>Real-time Tracking</h3>
+                <p>Utilizing Cell ID and triangulation, our technology continuously updates the device's position on the network.</p>
+            </div>
+            <div class="card">
+                <h3>Secure & Reliable</h3>
+                <p>With encrypted communication channels, user privacy and data security are our top priorities.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+      <div class="foot-left">
+        <img id="logo-footer" src="./logo.webp" alt="Logo">
+        <span class="mb-3 mb-md-0 text-body-secondary">© 2024 Company, Inc</span>
+      </div>
+
+      <div class="foot-mid">
+        <p>K.Harshith</p>
+        <p>K.Arya</p>
+        <p>K.J.Anil Pravin</p>
+        <p>G.Puneeth</p>
+        <p>K.Harsha Vardhan</p>
+      </div>
+    </footer>
+</body>
+</html>
