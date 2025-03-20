@@ -122,6 +122,22 @@
       color: #333;
     }
 
+    .password-block{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .password-block input{
+      flex: 95%;
+    }
+
+    .password-block h2{
+      flex: 5%;
+      cursor: pointer;
+    }
+
     .registration-container input {
       padding: 1rem;
       border: 2px solid #ff6f61;
@@ -159,10 +175,11 @@
 
     /* Title Animation - Opposite Colors */
     @keyframes title-animation {
-      0%, 100% { color: #ff4b2b; } /* Orange when bg is blue */
-      50% { color: #2193b0; }      /* Blue when bg is orange */
+      0%, 100% { color: #ff4b2b; } 
+      50% { color: #2193b0; }    
     }
 
+    /* footer */
     footer {
       display: flex;
       align-items: center;
@@ -193,20 +210,20 @@
   </style>
 </head>
 
-<body>
+<body onload="getLocation()">
     <header>
         <div class="logo-container">
-            <img id="logo" src="./logo.webp" alt="Logo">
-            <h1 class="title">Ping & Locate</h1>
-            <img id="vignan-logo" src="./vignan.png" alt="vignan">
+          <img id="logo" src="./logo.webp" alt="Logo">
+          <h1 class="title">Ping & Locate</h1>
+          <img id="vignan-logo" src="./vignan.png" alt="vignan">
         </div>
         <nav>
             <ul>
-                <li><a href="./index.html">Home</a></li>
-                <li><a href="./about_us.html">About Us</a></li>
-                <li><a href="./founder_details.html">Founder details</a></li>
-                <li><a href="./contact_info.html">Contact info</a></li>
-                <li><a href="./login.html">Login</a></li>
+              <li><a href="./index.html">Home</a></li>
+              <li><a href="./about_us.html">About Us</a></li>
+              <li><a href="./founder_details.html">Founder details</a></li>
+              <li><a href="./contact_info.html">Contact info</a></li>
+              <li><a href="./login.html">Login</a></li>
             </ul>
         </nav>
     </header>
@@ -214,18 +231,31 @@
     <main>
       <div class="registration-container">
         <h1>Create Your Account</h1>
-        <form action="login.html" method="get">
-          <label for="new-username">Username:</label>
-          <input type="text" id="new-username" name="new-username" required>
-
-          <label for="new-password">Password:</label>
-          <input type="password" id="new-password" name="new-password" required>
-
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required>
-
+        <form action="./login.html" method="get" onsubmit="return validatePassword()">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required minlength="4" maxlength="20" placeholder="Enter username">
+  
+          <label for="password">Password:</label>
+          <div class="password-block" >
+            <input type="password" id="password" name="password" required minlength="8"
+            pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
+            title="Password must be at least 8 characters, including one letter, one number, and one special character."
+            placeholder="Enter password">
+            <h2 id="togglePassword">🐵</h2>
+          </div>
+          
+          <label for="confirm_password">Confirm Password:</label>
+          <div class="password-block">
+            <input type="password" id="confirm_password" name="confirm_password" required placeholder="Re-enter password">
+            <h2 id="toggleConfirmPassword">🐵</h2>
+          </div>
+  
+          <!-- Auto-Filled GPS Coordinates -->
+          <input type="hidden" id="latitude" name="latitude">
+          <input type="hidden" id="longitude" name="longitude">
+  
           <button type="submit">Register</button>
-        </form>
+      </form>
       </div>
   </main>
 
@@ -243,5 +273,37 @@
       <p>K.Harsha Vardhan</p>
     </div>
   </footer>
+
+  <script>
+    document.getElementById("togglePassword").addEventListener("click", function () {
+        toggleVisibility("password", this);
+    });
+
+    document.getElementById("toggleConfirmPassword").addEventListener("click", function () {
+        toggleVisibility("confirm_password", this);
+    });
+
+    function toggleVisibility(inputId, iconElement) {
+        const passwordInput = document.getElementById(inputId);
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            iconElement.textContent = "🙈"; // Change to "hide" icon
+        } else {
+            passwordInput.type = "password";
+            iconElement.textContent = "🐵"; // Change back to "show" icon
+        }
+    }
+
+    function validatePassword() {
+      var password = document.getElementById("password").value;
+      var confirmPassword = document.getElementById("confirm_password").value;
+      if (password !== confirmPassword) {
+        alert("Passwords do not match!");
+        return false;
+      }
+      return true;
+    }
+  </script>
+
 </body>
 </html>
