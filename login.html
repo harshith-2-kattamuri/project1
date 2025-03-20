@@ -132,6 +132,22 @@
       color: #333;
     }
 
+    .password-block{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .password-block input{
+      flex: 95%;
+    }
+
+    .password-block h2{
+      flex: 5%;
+      cursor: pointer;
+    }
+
     .login-container input {
       padding: 1rem;
       border: 2px solid #ff6f61;
@@ -186,10 +202,11 @@
 
     /* Title Animation - Opposite Colors */
     @keyframes title-animation {
-      0%, 100% { color: #ff4b2b; } /* Orange when bg is blue */
-      50% { color: #2193b0; }      /* Blue when bg is orange */
+      0%, 100% { color: #ff4b2b; } 
+      50% { color: #2193b0; }   
     }
 
+    /* footer */
     footer {
       display: flex;
       align-items: center;
@@ -240,19 +257,25 @@
 
     <main>
       <div class="login-container">
-          <h1>Login to Your Account</h1>
-          <form action="index.html" method="post">
-              <label for="username">Username:</label>
-              <input type="text" id="username" name="username" required>
+        <h1>Login to Your Account</h1>
+        <form action="index.html" method="post">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required minlength="4" maxlength="20" placeholder="Enter username">
 
-              <label for="password">Password:</label>
-              <input type="password" id="password" name="password" required>
+          <label for="password">Password:</label>
+          <div class="password-block" >
+            <input type="password" id="password" name="password" required minlength="8"
+            pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
+            title="Password must be at least 8 characters, including one letter, one number, and one special character."
+            placeholder="Enter password">
+            <h2 id="togglePassword">🐵</h2>
+          </div>
 
-              <button type="submit">Login</button>
-          </form>
-          <p>Forgot password? <a href="reset.html">Reset here</a></p>
-          <p>Not a user? <a href="registration.html">Register here</a></p>
-      </div>
+          <button type="submit">Login</button>
+        </form>
+        <p>Forgot password? <a href="reset.html">Reset here</a></p>
+        <p>Not a user? <a href="registration.html">Register here</a></p>
+    </div>
   </main>
 
   <footer>
@@ -269,5 +292,26 @@
       <p>K.Harsha Vardhan</p>
     </div>
   </footer>
+
+  <script>
+    document.getElementById("togglePassword").addEventListener("click", function () {
+        toggleVisibility("password", this);
+    });
+
+    document.getElementById("toggleConfirmPassword").addEventListener("click", function () {
+        toggleVisibility("confirm_password", this);
+    });
+
+    function toggleVisibility(inputId, iconElement) {
+        const passwordInput = document.getElementById(inputId);
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            iconElement.textContent = "🙈"; // Change to "hide" icon
+        } else {
+            passwordInput.type = "password";
+            iconElement.textContent = "🐵"; // Change back to "show" icon
+        }
+    }
+  </script>
 </body>
 </html>
